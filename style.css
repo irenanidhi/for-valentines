@@ -1,0 +1,212 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Soft vintage background */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #d8cec1; /* sampled warm beige */
+    /* font-family: 'Playfair Display', serif; */
+    font-family: 'Special Elite', monospace;
+}
+
+
+/* Main container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typewriter-wrapper {
+    position: relative;
+    width: 600px;
+}
+
+.typewriter {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    display: block;
+}
+
+
+
+/* HEART positioned relative to IMAGE */
+.heart-button {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    top: 33.5%;     /* THIS aligns with paper heart */
+    left: 53.5%;
+    transform: translateX(-50%);
+    cursor: grabbing;
+    background: transparent;
+    border-radius: 50%;
+}
+
+.heart-button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(201, 65, 65, 0.5);
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.15); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Paper text area */
+.paper {
+    position: absolute;
+    top: 7%;      /* adjust carefully */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 250px;
+    padding: 15px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: #6b4c3b;
+    text-align: left;
+    line-height: 1.6;
+    letter-spacing: 1px;
+    pointer-events: none;
+    white-space: pre-line;
+}
+
+.paper.active {
+    animation: glow 1.5s ease forwards;
+}
+
+@keyframes glow {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+}
+
+
+/* Blinking cursor */
+.cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/paper.png');
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+.button-container {
+    position: fixed;
+    bottom: 80px;
+    width: 100%;
+    text-align: center;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.yes-btn {
+    background: #c94f4f;
+    color: white;
+}
+
+.no-btn {
+    background: #eee;
+}
+
+
+.celebration {
+    position: fixed;
+    inset: 0;
+    background-image: url("us.jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 100px;
+    text-align: center;
+    animation: fadeIn 1s ease forwards, slowZoom 10s ease infinite alternate;
+    overflow: hidden;
+}
+
+/* dark overlay for readability */
+.celebration::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent 50%);
+}
+
+.celebration-content {
+    position: top;
+    z-index: 2;
+    color: white;
+    font-family: 'Special Elite', monospace;
+}
+
+.celebration-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+
+}
+
+.celebration-content p {
+    font-size: 20px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slowZoom {
+    from { background-size: 100%; }
+    to { background-size: 110%; }
+}
