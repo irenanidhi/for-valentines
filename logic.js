@@ -79,15 +79,6 @@ function showButtons() {
     yesBtn.addEventListener("click", () => {
         const celebration = document.createElement("div");
         celebration.classList.add("celebration");
-
-        celebration.innerHTML = `
-            <div class="celebration-content">
-                <h1>YAYYYYY 💖</h1>
-                <h2>You're officially my FOREVER Valentine.</h2>
-                <p>Forever and ever, always. ✨</p>
-            </div>
-        `;
-
         document.body.appendChild(celebration);
 
         launchConfetti();
